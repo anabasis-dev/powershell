@@ -7,9 +7,15 @@ echo "if: $InterfaceIndex"
 $MyIP = Get-NetIPAddress -InterfaceIndex $InterfaceIndex -AddressFamily IPv4 | `
         Select-Object -ExpandProperty IPAddress
     # Set-DnsClientServerAddress -InterfaceIndex $InterfaceIndex -ServerAddresses "$MyIP,127.0.0.1"
+
+echo "ip: $MyIP"
+
 $DHCPServer = Get-WmiObject Win32_NetworkAdapterConfiguration | `
         Where-Object InterfaceIndex -eq $InterfaceIndex | `
         Select-Object -ExpandProperty "DHCPServer"
+
+echo "dhcp: $DHCPServer"
+
 
 
 return @{
