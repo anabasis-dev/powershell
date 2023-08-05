@@ -1,6 +1,11 @@
 
 
-let ru = @{ А=A, Б=B, В=V, Г=G, Д=D, Е=E, Ё=E, Ж=ZH, З=Z, И=I, Й=I }
+# let ru = @{ А=A, Б=B, В=V, Г=G, Д=D, Е=E, Ё=E, Ж=ZH, З=Z, И=I, Й=I }
+
+
+$fullname="Ivanov Andrey Pavlovich"
+
+Get-UserNameFromFullName($fullname)
 
 
 function Get-UserNameFromFullName
@@ -34,11 +39,29 @@ function Get-UserNameFromFullName
 
         $UserName = '{0}.{1}' -f $UserNameComponents[$Front], $UserNameComponents[$End]
 
-        $UserName -replace 'č', 'c' `
-                  -replace 'č', 'c' `
-                  -replace 'ć', 'c' `
-                  -replace 'đ', 'dj' `
-                  -replace 'š', 's' `
-                  -replace 'ž', 'z'
+        $FullName=@{$lastname, $firstname, $middlename}
+
+
+        echo $UserName
+
+        
+        # $UserName -replace 'č', 'c' `
+        #           -replace 'č', 'c' `
+        #           -replace 'ć', 'c' `
+        #           -replace 'đ', 'dj' `
+        #           -replace 'š', 's' `
+        #           -replace 'ž', 'z'
+
+
+
+    # $e=A=А,B=Б,C=Ц,D=Д,E=I,F=Ф
+    
+        # $UserName -replace 'а', 'а' `
+        #           -replace 'б', 'b' `
+        #           -replace 'ć', 'c' `
+        #           -replace 'đ', 'dj' `
+        #           -replace 'š', 's' `
+        #           -replace 'ž', 'z'
+    }
     }
 }
