@@ -1,6 +1,8 @@
+$request=(Write-Host "DC")
+Read-Host $domain
 
-$domainComponent0=tab
-$domainComponent1=local
+$domainComponent0=
+$domainComponent1=
 
 function createOU($name) {
   New-ADOrganizationalUnit -Name $name -Path "DC=$domainComponent0,DC=$domainComponent1"
